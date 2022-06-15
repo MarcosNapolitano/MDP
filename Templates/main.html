@@ -1,14 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'styles/main.css' %}">
+    <!--<script src='main.js'></script>-->
+    <title>Mercado Del Plata App</title>
 </head>
+
+
+
 <body>
 
-    <h1>Prueba 2</h1>
+    <header>
+        
+        <h1><a href="/">Logo</a></h1>
+        
+    </header>
+
+    <div>
+
+        <ul>
+            <li class="Menu">Productos</li>
+            <li class="Menu">Pedido</li>
+            <li class="Menu">Movimientos</li>
+            <li class="Menu">Clientes</li>
+            <li class="Menu">Detalle Pedidos</li>
+
+         </ul>
+
+
+    </div>
+
+
+
+    {% block content %}
+
+    {% endblock %}
+
+    <footer>
+        
+        <small>Mercado del Plata todos los derechos Reservados</small>
+
+    </footer>
     
 </body>
 </html>
