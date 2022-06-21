@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<table>
+    <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+    </tr>
+
+    {% for producto in productos %}
+
+        <tr>
+            <td>{{producto.codigo}}</td>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.precio}}</td>
+        </tr>
+
+    {% endfor %}
+
+</table>
+
+
+
+{% endblock %}
