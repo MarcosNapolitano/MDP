@@ -2,22 +2,41 @@
 
 {% block content %}
 
+
+
 <table>
+
+    <thead>
+
     <tr>
+        <th>Aclaraciones</th>
+        <th>Cantidad</th>
         <th>Código</th>
         <th>Nombre</th>
         <th>Precio</th>
     </tr>
 
-    {% for producto in productos %}
+    </thead>
+
+
+
+    <tbody>
+        <form method='POST' action="">
+        {% csrf_token %}
+
+    {% for i in productos %}
 
         <tr>
-            <td>{{producto.codigo}}</td>
-            <td>{{producto.nombre}}</td>
-            <td>{{producto.precio}}</td>
+            <td><input type="text"></td>
+            <td>{{i.codigo}}</td>
+            <td>{{i.nombre}}</td>
+            <td>{{i.precio}}</td>
         </tr>
-
-    {% endfor %}
+       
+        {% endfor %}
+        
+        </form>
+    </tbody>   
 
 </table>
 
