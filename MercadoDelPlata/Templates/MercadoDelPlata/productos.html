@@ -21,22 +21,25 @@
 
 
     <tbody>
-        <form method='POST' action="">
+        <form method='POST' action=""><!--aca va la url home y al proceso home se le agrega el submit del form-->
         {% csrf_token %}
 
     {% for i in productos %}
 
         <tr>
-            <td><input type="text"></td>
-            <td>{{i.codigo}}</td>
-            <td>{{i.nombre}}</td>
-            <td>{{i.precio}}</td>
+            <td><input type="text" name={{i.id}}T></td>
+            <td><input type="number" name={{i.id}}N></td>
+            <td><input type="text" name={{i.id}}C value={{i.codigo}} readonly></td>
+            <td name="nombre">{{i.nombre}}</td>
+            <td name="precio">{{i.precio}}</td>
         </tr>
        
         {% endfor %}
-        
+        <td><input type="submit" value="Submit"></td>
         </form>
     </tbody>   
+
+
 
 </table>
 
