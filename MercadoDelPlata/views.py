@@ -8,18 +8,21 @@ from .models import Producto, Pedido, Cliente
 
 def home(request):
 
+    productos = Producto.objects.all()
+
     if request.method=='POST':
 
-    
-        #aca hay que hacer un bucle for con los id de productos
-        #y reemplazar el 1 por "i"
+        
+
+        for i in productos:
+        
 
         #si la cantidad!=0 entonces agregar en una lista los 3 valores
         #luego por cada una de las listas crear un nuevo "pedido"    
         
-        print(request.POST.get("1"+"T"))
-        print(request.POST.get("1"+"N"))
-        print(request.POST.get("1"+"C"))
+            print(request.POST.get(str(i.id)+"T"))
+            print(request.POST.get(str(i.id)+"N"))
+            print(request.POST.get(str(i.id)+"C"))
        
         
         return redirect('home') #refreshea pasando el parametro del id
@@ -27,7 +30,7 @@ def home(request):
 
 
     
-    productos = Producto.objects.all()
+    
 
     context = {"productos":productos}
     
