@@ -20,4 +20,5 @@ from MercadoDelPlata import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
+    path('detalle_pedidos/', views.detalle_pedidos, name='detalle_pedidos')
 ]
