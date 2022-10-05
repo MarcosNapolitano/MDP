@@ -1,0 +1,335 @@
+/*paleta*/
+
+:root{
+	--celeste-oscuro:rgb(58,128,158);
+	--celeste-mas-oscuro: rgb(35,77,94);
+	--celeste: rgb(82,181,223);
+	--celeste-claro: rgb(87,190,235);
+	--celeste-intermedio: rgb(73,159,196);
+	--blanco-fondo: rgb(235,245,255)
+
+}
+
+
+html{
+	background-color: rgba(35,77,94,0.6);
+	
+
+}
+
+body{
+	background-color: var(--blanco-fondo);
+	margin: 0px 10%;
+	padding: 3%;
+	height: 50%;
+	font-family: "Calibri", sans-serif;
+}
+
+
+
+#encabezado{
+	margin: auto;
+	margin-bottom: 30px;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+
+
+	
+}
+
+#logo{
+	grid-column: 1;
+	width: 400px;
+}
+
+#fecha{
+	grid-column: 2;
+	font-family: "Calibri", sans-serif;
+	font-size: 35px;
+	font-style: italic;
+	text-align: Right;
+	color: var(--celeste-mas-oscuro);
+	margin: auto;
+	margin-right: 0px;
+	margin-top: 48px;
+
+}
+
+#contenedor-navbar{
+	margin: auto;
+	
+	height: 50px;
+}
+
+nav{
+	padding-top: 2px;
+	display: flex;
+	margin: auto;
+	height: 50px;
+	
+
+}
+
+#contenedor-navbar a{
+	margin: 0px 10px;
+	width: 150px;
+	height: 33px;
+	text-align: center;
+	font-size: 17px;
+	padding-top: 10px;
+	color: var(--blanco-fondo);
+	background-color: var(--celeste-oscuro);
+	box-shadow: 2px 2px 5px darkgray;
+	opacity: 70%;
+	border-radius: 10px;
+	transition: opacity 0.5s;
+
+}
+
+.current-tab{
+	opacity: 100%!important;
+	font-weight: 800;
+}
+
+#contenedor-navbar a:hover{
+	opacity: 100%;
+	font-weight: 800;
+}
+
+#contenedor-busqueda{
+
+	margin: 20px auto;
+	text-align: center;
+	height: 50px;
+
+}
+
+#busqueda{
+	margin: 1px auto;
+	padding-right: 10px;
+	padding-left: 10px;
+	width: 50%;
+	height: 40px;
+	font-size: 20px;
+	border: solid var(--celeste-oscuro) 3px;
+	box-shadow: 2px 2px 5px darkgray;
+	border-radius: 20px;
+	opacity: 60%
+}
+
+#contenedor-tabla{
+	margin-right: 9%;
+	margin-left: 9%;
+	overflow-x:scroll;
+}
+
+#tabla{
+	table-layout: fixed;
+	margin: auto;
+	width: 100%;
+}
+
+th{
+	height: 80px;
+	background-color: var(--celeste-intermedio) ;
+	border: solid var(--celeste-mas-oscuro) 3px;
+	border-radius: 5px;
+	color: var(--blanco-fondo);
+	font-size: 18px;
+	opacity: 80%;
+}
+
+th:nth-of-type(1){
+	width: 100px;
+}
+
+th:nth-of-type(2){
+	width: 75px;
+}
+
+th:nth-of-type(3){
+	width: 300px;
+}
+
+th:nth-of-type(4){
+	width: 75px;
+}
+
+th:nth-of-type(5){
+	width: 75px;
+}
+
+th:nth-of-type(6){
+	width: 75px;
+}
+
+th:nth-of-type(7){
+	width: 75px;
+}
+
+th:nth-of-type(8){
+	width: 100px;
+}
+
+th:nth-of-type(9){
+	width: 100px;
+}
+
+th:nth-of-type(10){
+	width: 75px;
+}
+tr{
+	height: 35px;
+
+}
+
+td{
+	border: solid var(--celeste-mas-oscuro) 1px;
+}
+
+
+
+.highlight{
+	background-color: yellow;
+
+}
+
+#contenedor-botones{
+	margin: auto;
+	margin-top: 20px;
+	margin-right: 12%;
+	text-align: right;
+}
+
+
+button{
+	margin-left: 5px;
+	width: 105px;
+	height: 50px;
+	text-align: center;
+	font-size: 15px;
+	color: var(--blanco-fondo);
+	background-color: var(--celeste-oscuro);
+	box-shadow: 2px 2px 5px darkgray;
+	border: none;
+	opacity: 70%;
+	border-radius: 30px;
+	transition: opacity 0.5s;
+
+}
+
+button:hover{
+	opacity: 100%;
+
+}
+
+@media (max-width:1180px) {
+
+	#logo{
+		width: 100%;
+	}
+
+	#fecha{
+		font-size: 150%;
+		margin-top: 20px;
+	}
+
+	th:nth-of-type(3){
+		width: 200px;
+	}
+	th:nth-of-type(5){
+		width: 55px;
+	}
+
+	#contenedor-navbar a{
+	height: 40px;
+	font-size: 15px;
+	padding-top: 15px;
+	
+
+}
+#contenedor-navbar a:nth-of-type(2){
+	height: 46px;
+	padding-top: 10px;
+	
+
+}
+
+
+	#contenedor-tabla{
+
+		margin-right: 0%;
+		margin-left: 0%;
+	}
+
+	#tabla{
+		width: 90%;
+	}
+
+
+}
+
+
+@media (max-width:670px){
+	#logo{
+		width: 100%;
+	}
+
+	#fecha{
+		font-size: 100%;
+	}
+	#busqueda{
+	margin: 0px auto;
+	width: 90%;
+	font-size: 15px;
+	
+	}
+}
+
+@media (max-width:420px){
+
+	body{
+		margin: 0px;
+	}
+	#logo{
+		width: 120px;
+	}
+
+	#fecha{
+		margin-top: 4%;
+		font-size: 17px;
+	}
+
+	#contenedor-navbar a{
+	margin: 0 3px;
+	height: 50%;
+	width: 50%;
+	font-size: 10px;
+	text-align: center;
+	padding-top: 10px;
+	}
+	#contenedor-navbar a:nth-of-type(2){
+	height: 58%;
+	padding-top: 2%;
+	
+
+	}
+	#busqueda{
+	margin: 0px auto;
+	width: 90%;
+	font-size: 15px;
+	
+	}
+
+	#tabla {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+	}
+
+
+
+
+}
+

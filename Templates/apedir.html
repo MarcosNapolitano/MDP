@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" lang="es">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="Mercado del Plata APP" content="Mercado del Plata APP" />
+		<title>Mercado del Plata WebApp</title>
+		<script>
+
+			function fecha(){
+
+				let today = new Date();
+				let dd = String(today.getDate());
+				let mm = String(today.getMonth() + 1);
+			
+				let dd2 = today.getDay();
+
+				const semana = ["Lunes","Martes", "Miercoles","Jueves", "Viernes", "Sabado", "Domingo"]
+
+				today = "Hoy es " + semana[dd2-1] +" " + dd + '/' + mm
+
+				document.getElementById("fecha").innerHTML=today
+				 
+			}
+
+		</script>
+		<link rel='stylesheet' href='index.css'></link>
+	</head>
+
+	<body>
+		<div id="encabezado">
+			<img id="logo" src="Logo_Para_Blanco_2.png">
+			<p id="fecha"></p>
+		</div>
+		<div id="contenedor-navbar">
+			<nav id="navbar">
+				<a>Lista</a>
+				<a class="current-tab">Movimientos Venta</a>
+				<a>A Pedir</a>
+				<a>Cerrar Sesión</a>
+				<a>Modo Oscuro</a>
+			</nav>
+		</div>
+
+		<div id="contenedor-tabla">
+			<table id="tabla">
+			  <tr>
+			    <th>Cantidad</th>
+			    <th>Nombre</th>
+			    <th>Aclaraciones</th>
+			    <th>Codigo</th>
+			    <th>Pedido</th>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Chocolate arcor 400g x 20u.</td>
+			    <td>$200</td>
+			    <td>$400</td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Coca Cola 500 pack x10.</td>
+			    <td>$500</td>
+			    <td>$750</td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Papel Higienico el orto limpio.</td>
+			    <td>$300</td>
+			    <td>$600</td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Cerveza Stella Artois x24.</td>
+			    <td>$200</td>
+			    <td>$400</td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Gin Bombay 750ml.</td>
+			    <td>$3250</td>
+			    <td>$5000</td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Fernet Branca 750cc x12u.</td>
+			    <td>$750</td>
+			    <td>$1000</td>
+			  </tr>
+			  
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Chocolate arcor 400g x 20u.</td>
+			    <td>$200</td>
+			    <td>$400</td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Coca Cola 500 pack x10.</td>
+			    <td>$500</td>
+			    <td>$750</td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Papel Higienico el orto limpio.</td>
+			    <td>$300</td>
+			    <td>$600</td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Cerveza Stella Artois x24.</td>
+			    <td>$200</td>
+			    <td>$400</td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Gin Bombay 750ml.</td>
+			    <td>$3250</td>
+			    <td>$5000</td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Fernet Branca 750cc x12u.</td>
+			    <td>$750</td>
+			    <td>$1000</td>
+			  </tr>
+
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Chocolate arcor 400g x 20u.</td>
+			    <td>$200</td>
+			    <td>$400</td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Coca Cola 500 pack x10.</td>
+			    <td>$500</td>
+			    <td>$750</td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Papel Higienico el orto limpio.</td>
+			    <td>$300</td>
+			    <td>$600</td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Cerveza Stella Artois x24.</td>
+			    <td>$200</td>
+			    <td>$400</td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Gin Bombay 750ml.</td>
+			    <td>$3250</td>
+			    <td>$5000</td>
+			  </tr>
+			  <tr>
+			    <td></td>
+			    <td></td>
+			    <td class="nombre">Fernet Branca 750cc x12u.</td>
+			    <td>$750</td>
+			    <td>$1000</td>
+			  </tr>
+			</table>
+			
+		</div>
+		<div id="contenedor-botones">
+			<button type="button" id="filter">Imprimir PDF</button>
+		</div>
+
+
+	</body>
+</html>

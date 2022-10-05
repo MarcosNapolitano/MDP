@@ -1,0 +1,173 @@
+/*paleta*/
+
+:root{
+	--celeste-oscuro:rgb(58,128,158);
+	--celeste-mas-oscuro: rgb(35,77,94);
+	--celeste: rgb(82,181,223);
+	--celeste-claro: rgb(87,190,235);
+	--celeste-intermedio: rgb(73,159,196);
+	--blanco-fondo: rgb(235,245,255)
+
+}
+
+
+
+body{
+	background-color: var(--blanco-fondo);Login
+}
+
+
+center{
+	margin-top: 100px;
+}
+
+img{
+	width: 400px;
+}
+
+
+div{
+	background-color: var(--celeste);
+	margin: auto;
+	width: 500px;
+	height: 500px;
+	border-radius: 100px;
+	margin-top: 20px;
+	
+	box-shadow: 5px 5px 10px darkgray;
+}
+
+p{
+	color: var(--blanco-fondo);
+	font-family: "Calibri", sans-serif;
+	font-size: 32px;
+	padding-top: 20px;
+	font-weight: 800;
+	text-align: center;
+
+}
+
+#usuario{
+	text-align: left;
+	font-weight: 400;
+	font-size: 22px;
+	margin-left: 100px;
+	
+}
+
+#contra{
+	text-align: left;
+	font-weight: 400;
+	font-size: 22px;
+	margin-left: 100px;
+	
+}
+
+input{
+	
+	height: 30px;
+	width: 60%;
+	font-size: 18px;
+	margin-left: 100px;
+	border: var(--celeste);
+	border-radius: 4px;
+	opacity: 70%
+
+}
+
+#boton{
+
+	background-color: var(--celeste-oscuro);
+	color:  var(--blanco-fondo);
+	font-size: 25px;
+	font-style: italic;
+	margin-top: 50px;
+	height: 50px;
+	border-radius: 20px;
+	transition: background-color 0.2s;
+}
+
+#boton:hover{
+	background-color: var(--celeste-mas-oscuro);
+}
+
+@media (max-width:930px) {
+
+	center{
+		margin-top: 150px;
+	}
+
+}
+
+
+
+@media (max-width:725px) {
+
+  	center{
+  		margin-top: 100px;
+  	}
+
+	img{
+	  	width: 200px;
+	  	
+	}
+ 	div{
+	    height:200px;
+	    width: 350px;
+	    border-radius: 50px;
+	}
+  	p{
+		
+		padding-top: 3px;
+		margin-top: 0px;
+		
+
+	}
+	#usuario{
+		
+		font-size: 20px;
+		margin-left: 40px;
+		margin-top: -45px;
+		
+	}
+
+	#contra{
+		
+		
+		font-size: 20px;
+		margin-left: 40px;
+		margin-top: 5px;
+
+		
+	}
+
+	input{
+		
+		height: 30px;
+		width: 80%;
+		font-size: 18px;
+		margin-left: 40px;
+		margin-top: -20px;
+		
+
+
+		
+		
+
+	}
+
+	#boton{
+
+		margin-top: 40px;
+		height: 50px;
+		
+	}
+ 
+}
+
+@media (max-height:400px) {
+
+  	center{
+  		margin-top: 0px;
+  	}
+
