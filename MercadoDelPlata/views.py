@@ -1,7 +1,10 @@
-import re
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import Producto, Pedido, Cliente, Venta
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 from django.forms.widgets import DateInput 
 from django.core.exceptions import ObjectDoesNotExist
 from datetime import date
@@ -20,9 +23,37 @@ class ventaForm(forms.ModelForm):
             'fecha_cobrado': DateInput(attrs={'type': 'date'}),
             'fecha_entrega': DateInput(attrs={'type': 'date'}),
             'fecha_facturacion': DateInput(attrs={'type': 'date'}),
+            
         }
 
 
+def Login(request):
+    if request.method =="POST":
+        username = request.POST.get('user')
+        password = request.POST.get('pass')
+
+        try:
+            usuario = User.objects.get(username=username)
+        except:
+            messages.error(request, "Usuario Incorrecto")
+        
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect("home")
+        else: 
+            messages.error(request, "Datos Incorrectos")
+
+
+    return render(request, "MercadoDelPlata/login.html")
+
+def Logout(request):
+    
+    logout(request)
+    return redirect("login")
+
+@login_required(login_url="login")
 def home(request):
 
     productos = Producto.objects.all()
@@ -89,6 +120,7 @@ def home(request):
     
     return render(request, "MercadoDelPlata/productos.html", context)
 
+@login_required(login_url="login")
 def Mventa(request):
 
     ventas=Venta.objects.all()
@@ -99,7 +131,7 @@ def Mventa(request):
 
     return render(request, "MercadoDelPlata/mventa.html", context)
 
-
+@login_required(login_url="login")
 def Eventa(request, pk):
 
     venta=Venta.objects.get(id=pk)
@@ -116,7 +148,7 @@ def Eventa(request, pk):
     context = {"form":form , "venta":venta}
 
     
-
+@login_required(login_url="login")
 def Apedir(request):
 
     fecha = date.today()
@@ -140,10 +172,12 @@ def Apedir(request):
 
     return render(request, "MercadoDelPlata/apedir.html", context)
 
+
+@login_required(login_url="login")
 def Scripts(request):
 
     productos = Producto.objects.all()
-
-    context= {"resultado":productos}
+    usuario = request.user
+    context= {"resultado":productos, "usuario":usuario}
 
     return render(request, "MercadoDelPlata/scripts.html",context)

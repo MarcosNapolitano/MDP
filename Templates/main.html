@@ -60,10 +60,15 @@
 		</div>
 		<div id="contenedor-navbar">
 			<nav id="navbar">
-				<a class="current-tab" href="{% url 'home' %}">Lista</a>
-				<a href="{% url 'mventa' %}">Movimientos Venta</a>
-				<a>A Pedir</a>
-				<a>Cerrar Sesión</a>
+				<a id="lista-tab" class="current-tab" href="{% url 'home' %}">Lista</a>
+				{% if request.user == "Pela" %}
+					<a id="mov-tab" href="{% url 'mventa' %}" style="display:none">Movimientos Venta</a>
+					<a id="ape-tab" href="{% url 'apedir' %}" style="display:none">A Pedir</a>
+				{% else %}
+					<a id="mov-tab" href="{% url 'mventa' %}">Movimientos Venta</a>
+					<a id="ape-tab" href="{% url 'apedir' %}">A Pedir</a>
+				{% endif %}
+				<a href="{% url 'logout' %}">Cerrar Sesión</a>
 				<a>Modo Oscuro</a>
 			</nav>
 		</div>

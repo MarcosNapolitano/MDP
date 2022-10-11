@@ -1,8 +1,6 @@
 to do:
 
 
-que la current tag cambie con las pestañas y sumar la de apedir
-crear sistema login y cambiar url de home por lista para q home sea login
 crear modo oscuro
 crear el buscador y la base de datos de productos
 crear base de mov venta

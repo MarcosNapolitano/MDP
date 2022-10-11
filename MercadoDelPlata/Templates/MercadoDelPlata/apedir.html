@@ -2,6 +2,12 @@
 
 {% block content %}
 
+	<script>
+		window.addEventListener("load", () =>{
+			document.getElementById("lista-tab").setAttribute("class","");
+			document.getElementById("ape-tab").setAttribute("class","current-tab")})
+	</script>
+
 	{%for key, value in cantidades.items %}
 		<h3>{{key}}-----{{value}}</h3>
 		

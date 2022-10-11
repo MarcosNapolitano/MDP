@@ -1,4 +1,5 @@
-<!doctype html>
+<!DOCTYPE html>
+{% load static %}
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -6,20 +7,28 @@
 		<meta name="Mercado del Plata APP" content="Mercado del Plata APP" />
 		<title>Mercado del Plata</title>
 		<script></script>
-		<link rel='stylesheet' href='login.css'></link>
+		<link rel='stylesheet' href="{% static 'styles/login.css' %}"></link>
 	</head>
 
 	<body>
 	
-		<center><img src="Logo_Para_Blanco_2.png"></center>
+		<center><img src="{% static 'img/Logo_Para_Blanco_2.png' %}"></center>
 		
 		<div>
 			<p>Login</p>
-			<p id="usuario">Usuario</p>
-			<input type="text" name="user" placeholder="Ingrese su usuario">
-			<p id="contra">Contraseña</p>
-			<input type="password" name="pass" placeholder="Ingrese su contraseña">
-			<input type="submit" name="submit" value="Log In" id="boton">
+			<form method="POST" action="">
+			{% csrf_token %}	
+				<p id="usuario">Usuario</p>
+				<input type="text" name="user" placeholder="Ingrese su usuario">
+				<p id="contra">Contraseña</p>
+				<input type="password" name="pass" placeholder="Ingrese su contraseña">
+				<input type="submit" name="submit" value="Log In" id="boton">
+			</form>
+			{% if messages %}
+				{% for i in messages %}
+				<p>{{ i }}</p>
+				{% endfor %}
+			{% endif %}
 		</div>
 
 	</body>
