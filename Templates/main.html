@@ -8,8 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="Mercado del Plata APP" content="Mercado del Plata APP" />
 		<title>Mercado del Plata WebApp</title>
-        <link rel='stylesheet' type='text/css' media='screen' href="{% static 'styles/index.css' %}">
-        <script>
+		<script>
             
 			function fecha(){
 
@@ -46,7 +45,10 @@
 			});            
 
         </script>
+        <link rel='stylesheet' type='text/css' media='screen' href="{% static 'styles/index.css' %}">
+        
     </head>
+
 
 
 
@@ -59,7 +61,7 @@
 		<div id="contenedor-navbar">
 			<nav id="navbar">
 				<a class="current-tab" href="{% url 'home' %}">Lista</a>
-				<a>Movimientos Venta</a>
+				<a href="{% url 'mventa' %}">Movimientos Venta</a>
 				<a>A Pedir</a>
 				<a>Cerrar Sesión</a>
 				<a>Modo Oscuro</a>
@@ -70,13 +72,9 @@
 
         {% block content %}
 
-        {% endblock %}
+        {% endblock content%}
 
-        <footer>
-            
-            <small>Mercado del Plata todos los derechos Reservados</small>
-
-        </footer>
+       
         
     </body>
 </html>

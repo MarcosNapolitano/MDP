@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+	{%for key, value in cantidades.items %}
+		<h3>{{key}}-----{{value}}</h3>
+		
+	{% endfor %}
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	{% for i in ventas %}
+		<h3>{{i.cliente}}</h3>
+		{% for j in i.pedidos.all %}
+			<h3>{{j.codigo}}</h3>
+		{% endfor %}
+		
+	{% endfor %}
+
+	
+
+
+{% endblock %}

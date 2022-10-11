@@ -1,10 +1,29 @@
 {% extends 'main.html' %}
 
+{% load mathfilters %}
+
+
 {% block content %}
+
+
+
+
+
+
 <div id="contenedor-busqueda">
     <input type="text" name="busqueda" id="busqueda" placeholder="Ingrese nombre de artículo...">
 </div>
+
+{% if advertencia %}
+
+    <h2 style="color:red"><center>Cliente Incorrecto</center></h2>
+
+{% endif %}
+
 <div id="contenedor-tabla">
+
+    <form method='POST' action="" id="form"><!--aca va la url home y al proceso home se le agrega el submit del form-->
+        {% csrf_token %}
     <table id="tabla">
         <thead>
 
@@ -23,36 +42,51 @@
 
         </thead>
 
-
-
         <tbody>
-            <form method='POST' action=""><!--aca va la url home y al proceso home se le agrega el submit del form-->
-            {% csrf_token %}
-
+            
         {% for i in productos %}
 
-            <tr>
-                <td><input type="text" name={{i.id}}T></td>
-                <td><input type="number" name={{i.id}}N></td>
-                <td><input type="text" name={{i.id}}C value={{i.codigo}} readonly></td>
-                <td name="nombre">{{i.nombre}}</td>
-                <td name="precio">{{i.precio}}</td>
+            <tr id="aca">
+                <td><input type="text" name="Aclaracion"></td>
+                <td><input type="number" name="Numero"></td>
+                <td><input type="text" name="Nombre" value="{{i.nombre}}" class="nombre" readonly></td>
+                <td name="precio">{{i.costo|mul:i.incremento|div:i.unidades|floatformat:2}}</td>
+                <td name="PVP">{{i.costo|mul:i.incremento|div:i.unidades|mul:1.5|floatformat:2}}</td>
+                <td><input type="text" name="Bulto" value="{{i.costo|mul:i.incremento|floatformat:2}}" readonly></td>
+                <td><input type="text" name="Codigo" value={{i.codigo}} readonly></td>
+                <td name="Bodega">{{i.bodega}}</td>
+                <td name="Empresa">{{i.empresa}}</td>
+                <td name="Estado">{{i.estado}}</td>
             </tr>
+        {% endfor %}
+           
         
-            {% endfor %}
-            <!--><td><input type="submit" value="Submit"></td><-->
-            </form>
+            
+            <tr>
+                <td id="boton1" style="border:none"><button onclick="crearPedido()" type="button" >Crear Pedido</button></td>
+            
+            </tr>
+            <script>
+
+                const crearPedido = () =>{
+                    document.getElementById("boton1").style.display="none"
+                    document.getElementById("emergente").style.display="inline-block"
+                    document.getElementById("emergente2").style.display="inline-block"
+                }
+
+            </script>
+
+
         </tbody>   
 
-
-
     </table>
+    <div id="contenedor-botones">
+        <input type="text" name="Cliente" id="emergente" placeholder="Inserte Cliente" />
+        <input type="submit" value="Crear Pedido" id="emergente2"/>
+    </div>
+    </form>
 </div>
 
-<div id="contenedor-botones">
-    <button type="button" id="create">Crear Pedido</button>
-    <button type="button" id="filter">Filtrar</button>
-</div>
 
 
 {% endblock %}

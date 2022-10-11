@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+		<div id="contenedor-tabla">
+
+			<table>
+				
+				<thead>
+					<tr>
+						<th>Fecha Venta</th>
+						<th>Fecha Entrega</th>
+						<th>Fecha Cobro</th>
+						<th>Fecha Facturación</th>
+						<th>Cliente</th>
+						<th>Hora</th>
+						<th>Estado</th>
+						<th>Monto</th>
+						<th>Metodo de Pago</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for i in ventas %}
+					<tr>
+						<td>{{i.fecha|date:"d/m/y"}}</td>
+						<td>{{i.fecha_entrega|date:"d/m/y"}}</td>
+						<td>{{i.fecha_cobrado|date:"d/m/y"}}</td>
+						<td>{{i.fecha_facturacion|date:"d/m/y"}}</td>
+						<td><a href="{% url 'eventa' i.id %}">{{i.cliente}}</a></td>
+						<td>{{i.fecha|time}}</td>
+						{% if i.entregado %}
+						<td><input type="checkbox" checked readonly></td>
+						{% else %}
+						<td><input type="checkbox"readonly></td>
+						{% endif %}
+						<td>${{i.total}}</td>
+						<td>{{i.pago}}</td>
+
+					</tr>
+					{% endfor %}
+				</tbody>
+				
+			</table>
+			
+			
+		</div>
+		<div id="contenedor-botones">
+			<button type="button" id="filter">Filtrar</button>
+		</div>
+
+{% endblock %}
