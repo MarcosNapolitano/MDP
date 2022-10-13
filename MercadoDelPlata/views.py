@@ -25,7 +25,7 @@ class ventaForm(forms.ModelForm):
             'fecha_facturacion': DateInput(attrs={'type': 'date'}),
             
         }
-
+ 
 
 def Login(request):
     if request.method =="POST":
@@ -120,9 +120,13 @@ def home(request):
     
     return render(request, "MercadoDelPlata/productos.html", context)
 
+
 @login_required(login_url="login")
 def Mventa(request):
 
+    """ if request.user.username == "Pela":
+        return redirect("home") """
+    
     ventas=Venta.objects.all()
     
     print(request.POST)
@@ -134,22 +138,36 @@ def Mventa(request):
 @login_required(login_url="login")
 def Eventa(request, pk):
 
+    """ if request.user.username == "Pela":
+        return redirect("home") """
+
     venta=Venta.objects.get(id=pk)
     form = ventaForm(instance=venta)
 
     if request.method=="POST":
-        form = ventaForm(request.POST, instance=venta)
-        if form.is_valid():
-            form.save()
 
+        if request.user.has_perm('MercadoDelPlata.change_venta'):
+
+            form = ventaForm(request.POST, instance=venta)
+
+            if form.is_valid():
+                form.save()
+
+                return redirect('mventa')
+        else:
             return redirect('mventa')
 
 
     context = {"form":form , "venta":venta}
 
+    return render(request, "MercadoDelPlata/eventa.html", context)
+
     
 @login_required(login_url="login")
 def Apedir(request):
+
+    if request.user.username == "Pela":
+        return redirect("home")
 
     fecha = date.today()
 
@@ -172,12 +190,17 @@ def Apedir(request):
 
     return render(request, "MercadoDelPlata/apedir.html", context)
 
-
+ 
 @login_required(login_url="login")
 def Scripts(request):
 
+    if request.user.username == "Pela" or request.user.username == "Emi":
+        return redirect("home")
+
+
     productos = Producto.objects.all()
-    usuario = request.user
+    usuario = User.objects.get(username="Emi")
+    
     context= {"resultado":productos, "usuario":usuario}
 
     return render(request, "MercadoDelPlata/scripts.html",context)

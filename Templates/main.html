@@ -30,19 +30,7 @@
 
 			window.addEventListener("load",fecha,false);
 
-
-			window.addEventListener("keyup",e=>{
-				if(e.target.matches("#busqueda")){
-
-					if(e.key==="Escape")e.target.value="/"
-
-					
-					document.querySelectorAll(".nombre").forEach(a=>{
-						a.textContent.toLowerCase().includes(e.target.value.toLowerCase())?a.classList.add("highlight")
-										  :a.classList.remove("highlight")})
-				
-				}
-			});            
+           
 
         </script>
         <link rel='stylesheet' type='text/css' media='screen' href="{% static 'styles/index.css' %}">
@@ -61,7 +49,7 @@
 		<div id="contenedor-navbar">
 			<nav id="navbar">
 				<a id="lista-tab" class="current-tab" href="{% url 'home' %}">Lista</a>
-				{% if request.user == "Pela" %}
+				{% if request.user.username == "Pela" %}
 					<a id="mov-tab" href="{% url 'mventa' %}" style="display:none">Movimientos Venta</a>
 					<a id="ape-tab" href="{% url 'apedir' %}" style="display:none">A Pedir</a>
 				{% else %}

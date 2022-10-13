@@ -7,11 +7,13 @@
 
 
 
-
+<script>
+    
+</script>
 
 
 <div id="contenedor-busqueda">
-    <input type="text" name="busqueda" id="busqueda" placeholder="Ingrese nombre de artículo...">
+    <input onkeydown="busqueda(event)" type="text" name="busqueda" id="busqueda" placeholder="Ingrese nombre de artículo...">
 </div>
 
 {% if advertencia %}
@@ -46,14 +48,14 @@
             
         {% for i in productos %}
 
-            <tr id="aca">
+            <tr>
                 <td><input type="text" name="Aclaracion"></td>
                 <td><input type="number" name="Numero"></td>
-                <td><input type="text" name="Nombre" value="{{i.nombre}}" class="nombre" readonly></td>
+                <td><input type="text" name="Nombre" id="{{i.nombre}}" value="{{i.nombre}}" readonly></td>
                 <td name="precio">{{i.costo|mul:i.incremento|div:i.unidades|floatformat:2}}</td>
                 <td name="PVP">{{i.costo|mul:i.incremento|div:i.unidades|mul:1.5|floatformat:2}}</td>
                 <td><input type="text" name="Bulto" value="{{i.costo|mul:i.incremento|floatformat:2}}" readonly></td>
-                <td><input type="text" name="Codigo" value={{i.codigo}} readonly></td>
+                <td><input type="text" name="Codigo" value={{i.codigo}} id={{i.codigo}} readonly></td>
                 <td name="Bodega">{{i.bodega}}</td>
                 <td name="Empresa">{{i.empresa}}</td>
                 <td name="Estado">{{i.estado}}</td>
@@ -85,6 +87,33 @@
         <input type="submit" value="Crear Pedido" id="emergente2"/>
     </div>
     </form>
+    <script>
+
+        function busqueda(e){
+
+            let abuscar = document.getElementById("busqueda").value;
+            let patron = new RegExp(`${abuscar}`,"gi");
+            let objetivo = document.querySelectorAll(`[id^=${abuscar}]`);
+
+            
+            
+
+            objetivo.forEach(query => {
+                query.style.color = 'red';
+                });
+            
+            if (e.key === "Escape"){
+                document.getElementById("busqueda").value=""
+                objetivo.forEach(query => {
+                    query.style.color = 'black';
+                    });
+            }
+            
+
+            
+        }
+
+    </script>
 </div>
 
 

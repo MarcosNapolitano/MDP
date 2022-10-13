@@ -1,10 +1,10 @@
 to do:
 
+completar buscador
 
-crear modo oscuro
-crear el buscador y la base de datos de productos
 crear base de mov venta
 dar formato a apedir y a mov venta
 verificar responisve
+crear modo oscuro
 agregar opcion de aclaraciones a un pedido
 sumar exportar a pdf en apedir

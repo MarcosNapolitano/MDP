@@ -2,9 +2,12 @@
 <table>
 <tr><td>{{i.codigo}}</td> 
     <td>{{i.nombre}}</td>
-    <td>{{request.user.group.all.0}}</td></tr>
+    <td>{{usuario.get_all_permissions}}</td></tr>
 </table>
 
 {% endfor %}
+
+
+
 
 
